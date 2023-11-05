@@ -6,6 +6,7 @@ import { loginSchemea } from "../schema/loginSchema";
 
 
 
+
 export const authRoutes = async (server: FastifyInstance) => {
 
     const loginRoute = {
@@ -21,6 +22,7 @@ export const authRoutes = async (server: FastifyInstance) => {
     server.post('/login', loginRoute);
 
     server.post('/signup', signUpRoute);
+
 
 
 

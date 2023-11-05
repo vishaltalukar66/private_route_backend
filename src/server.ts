@@ -2,7 +2,7 @@ import fastify from 'fastify'
 import cors from '@fastify/cors'
 import { authRoutes } from './routes/authRoutes'
 
-export const runServer = () => {
+export const runServer = async () => {
     const server = fastify()
     server.register(cors, {
         // put your options here
@@ -13,7 +13,7 @@ export const runServer = () => {
         return 'pong\n'
     })
 
-    server.register(authRoutes);
+    await server.register(authRoutes);
 
     server.listen({ port: 8080 }, (err, address) => {
         if (err) {
