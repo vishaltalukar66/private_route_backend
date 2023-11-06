@@ -1,11 +1,11 @@
 import { authData } from "../interfaces/authData";
-import { signUpRepoReturn } from "../interfaces/returnType/signUpRepoReturn";
+import { signUpReturn } from "../interfaces/returnType/signUpReturn";
 import { User } from "../models/userModel";
 import bcrypt from 'bcrypt';
 
 
 
-export const signUpRepo = async (data: authData): Promise<signUpRepoReturn> => {
+export const signUpRepo = async (data: authData): Promise<signUpReturn> => {
 
 
     try {
@@ -21,14 +21,15 @@ export const signUpRepo = async (data: authData): Promise<signUpRepoReturn> => {
             const password = data.password as string;
             const salt = bcrypt.genSaltSync(parseInt(process.env.SALTROUND as string));
             const hashPassword = bcrypt.hashSync(password, salt); // hash Password
-            console.log('into system');
+
             //use User model to create new model and save
             const newUser = new User({ username, 'password': hashPassword });
             await newUser.save();
             console.log('User saved successfully');
             return {
                 success: true,
-                username: data.username
+                username: data.username,
+                message: 'Successfully created  account'
 
             }
 
@@ -38,14 +39,14 @@ export const signUpRepo = async (data: authData): Promise<signUpRepoReturn> => {
             console.log('userExisting');
             return {
                 success: false,
-                username: "User already existing"
+                message: "User already existing"
             }
 
         }
     } catch (error) {
         return {
             success: false,
-            username: "Unable to store"
+            message: "Unable to store"
 
         }
     }

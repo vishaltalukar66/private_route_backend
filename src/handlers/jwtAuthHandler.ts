@@ -1,28 +1,25 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { signUpService } from "../services/signUpService";
-import { authData } from "../interfaces/authData";
+import { jwtAuthService } from "../services/jwtAuthService";
 
-export const signUpHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+export const jwtAuthHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     try {
-        const data = request.body as authData;
-        const response = await signUpService(data);
 
+        const response = await jwtAuthService(request);
         if (response.success) {
-            reply.status(200).send(response)
+            reply.send(response);
         }
         else {
             reply.status(400).send(response)
         }
+
+
+
     } catch (error) {
         reply.status(400).send({
-
             success: false,
             message: "Some Error try after some time, Contact Admin"
-
-
         })
     }
-
 
 
 }

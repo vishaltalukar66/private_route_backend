@@ -1,8 +1,8 @@
 import { authData } from "../interfaces/authData";
-import { signUpRepoReturn } from "../interfaces/returnType/signUpRepoReturn";
+import { signUpReturn } from "../interfaces/returnType/signUpReturn";
 import { signUpRepo } from "../repository/signUpRepo";
 
-export const signUpService = async (data: authData): Promise<signUpRepoReturn> => {
+export const signUpService = async (data: authData): Promise<signUpReturn> => {
     try {
         const responseFromRepo = await signUpRepo(data);
         return responseFromRepo

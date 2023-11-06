@@ -1,20 +1,25 @@
 import fastify from 'fastify'
 import cors from '@fastify/cors'
-import { authRoutes } from './routes/authRoutes'
+import { authRoutes } from './routes/authRoutes';
+import cookie, { FastifyCookieOptions } from '@fastify/cookie'
 
 export const runServer = async () => {
     const server = fastify()
     server.register(cors, {
         // put your options here
-        origin: '*',
+
+        origin: [true, 'http://localhost:5173/'],
+        credentials: true,
+
         methods: ["GET", "POST"]
-    })
-    server.get('/ping', async (request, reply) => {
-        return 'pong\n'
     })
 
     await server.register(authRoutes);
 
+    server.register(cookie, {
+        secret: "my-secret", // for cookies signature
+        parseOptions: {}     // options for parsing cookies
+    } as FastifyCookieOptions)
     server.listen({ port: 8080 }, (err, address) => {
         if (err) {
             console.error(err)
