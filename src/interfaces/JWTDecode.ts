@@ -1,4 +1,3 @@
-import { authData } from "./authData";
 import { loginReturn } from "./returnType/loginReturn";
 
 export interface JWTDecode {

@@ -6,21 +6,19 @@ import { generateJWT } from "../utils/generateJWT";
 
 export const loginService = async (data: authData): Promise<loginReturn> => {
     try {
+
         const responseFromRepo = await loginRepo(data);
 
         if (responseFromRepo.success) {
+            //call JWT() to generate token, pass the user details
             const jwt = await generateJWT(responseFromRepo);
             if (jwt.success) {
+                //set jwt to response
                 responseFromRepo.JWT = jwt.jwt;
             }
-            //else do nothing
-            return responseFromRepo;
-        }
-        else {
-            return responseFromRepo;
         }
 
-
+        return responseFromRepo;
 
     } catch (error) {
         return {

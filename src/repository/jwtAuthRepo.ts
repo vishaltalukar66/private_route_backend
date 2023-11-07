@@ -5,7 +5,7 @@ import { User } from "../models/userModel";
 export const jwtAuthRepo = async (payload: loginReturn): Promise<jwtAuthRepoReturn> => {
     try {
 
-        await User.findOne({ _id: payload.mongoID });
+        await User.findOne({ _id: payload.mongoDb_id });
         return {
             success: true
         }

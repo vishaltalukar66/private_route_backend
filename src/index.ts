@@ -7,11 +7,14 @@ require('dotenv').config({ path: './.env' })
 
 const index = async () => {
     try {
-        await dbIndex();
-        await runServer();
+        //Invoke Db connect then start server
+        await dbIndex().then(async () => {
+            await runServer();
+        });
+
 
     } catch (error) {
-        console.log("Unable to Run Server");
+        console.log("Unable to start Server");
     }
 }
 

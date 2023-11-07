@@ -9,7 +9,7 @@ export const jwtAuthService = async (request: FastifyRequest): Promise<jwtAuthSe
     try {
         const cookie = request.headers.cookie as string;
         if (cookie === undefined) {
-            console.log('cookie \n', cookie)
+
             return {
                 success: false,
                 message: "Cookie not available, User not Logged in"
@@ -22,6 +22,7 @@ export const jwtAuthService = async (request: FastifyRequest): Promise<jwtAuthSe
             // call decode() to check the signature and not expired
             const responseFromDecode = decodeJWT(cookieArray[1]) as decodeJWTReturn;
             if (responseFromDecode.success) {
+                //once cookie is decoded check if the user details are in DB or no
                 const responseFromRepo = await jwtAuthRepo(responseFromDecode.payload as loginReturn);
                 if (responseFromRepo.success) {
                     return {

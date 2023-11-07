@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt';
 
 export const loginRepo = async (data: authData): Promise<loginReturn> => {
     try {
+        //search user data based on username
         const getUser = await User.findOne({ username: data.username });
 
         if (getUser === null) {
@@ -13,18 +14,19 @@ export const loginRepo = async (data: authData): Promise<loginReturn> => {
                 success: false,
                 message: 'User not found'
             }
-
-
         }
         else {
 
-            const id = String(getUser?._id);
+            //Comapre password, password from db & user input password
             const passwordMatch: Boolean = bcrypt.compareSync(data.password as string, getUser?.password as string);
+
+            const id = String(getUser?._id);
             if (passwordMatch) {
+                //if match return userdata
                 return {
                     success: true,
                     username: data.username,
-                    mongoID: id,
+                    mongoDb_id: id,
                     message: 'Login Successfull'
 
                 }

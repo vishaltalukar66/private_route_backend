@@ -4,6 +4,8 @@ import { authData } from "../interfaces/authData";
 
 export const signUpHandler = async (request: FastifyRequest, reply: FastifyReply) => {
     try {
+        //extract user request data
+
         const data = request.body as authData;
         const response = await signUpService(data);
 

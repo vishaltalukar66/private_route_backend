@@ -6,16 +6,19 @@ import { loginReturn } from "../interfaces/returnType/loginReturn";
 export const loginHandler = async (request: FastifyRequest, reply: FastifyReply) => {
 
     try {
+        //extract data from request body
         const data = request.body as authData;
 
         const response = await loginService(data) as loginReturn;
+
         if (response.success) {
+            //extract jwt token and set cookie
             const jwt = String(response.JWT);
             reply.setCookie('private', jwt, {
                 httpOnly: true,
-                maxAge: 10 * 60 * 60 * 24,
+                maxAge: 60 * 60 * 24,
 
-            });
+            }).send(response);
 
         }
         else {

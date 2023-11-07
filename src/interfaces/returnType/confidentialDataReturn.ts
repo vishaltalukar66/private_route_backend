@@ -1,7 +1,7 @@
-export interface loginReturn {
+export interface confidentialDataReturn {
     success: boolean;
     username?: String;
-    mongoDb_id?: String;
+    mongoDB_id?: String;
     message: String;
     JWT?: String;
 }
