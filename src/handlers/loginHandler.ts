@@ -18,6 +18,7 @@ export const loginHandler = async (request: FastifyRequest, reply: FastifyReply)
                 httpOnly: true,
                 maxAge: 60 * 60 * 24,
                 sameSite: "none",
+                secure: 'auto',
             }).send(response);
 
         }
