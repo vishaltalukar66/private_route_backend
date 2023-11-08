@@ -30,9 +30,9 @@ export const authRoutes = async (server: FastifyInstance) => {
         handler: confidentialDataHandler
     }
 
-    const logout = {
-        handler: logoutHandler
-    }
+    // const logout = {
+    //     handler: logoutHandler
+    // }
 
     const server_home = {
         handler: serverHomeHandler
@@ -48,7 +48,7 @@ export const authRoutes = async (server: FastifyInstance) => {
 
     server.post('/confi', confidential);
 
-    server.post('/logout', logout);
+    // server.post('/logout', logout);
 
     server.get('/', server_home);
 

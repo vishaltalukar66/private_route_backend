@@ -16,7 +16,7 @@ export const loginHandler = async (request: FastifyRequest, reply: FastifyReply)
             const jwt = String(response.JWT);
             reply.setCookie('private', jwt, {
                 httpOnly: true,
-                expires: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
+                expires: new Date(new Date().getTime() + 2 * 60 * 1000),
                 sameSite: "none",
                 secure: 'auto',
             }).send(response);
