@@ -7,7 +7,7 @@ export const runServer = async () => {
     const server = fastify()
     server.register(cors, {
         // put your options here
-        origin: [true],
+        origin: "https://private-route-navy.vercel.app",
         credentials: true,
         methods: ["GET", "POST"]
     })
