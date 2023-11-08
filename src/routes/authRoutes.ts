@@ -6,6 +6,7 @@ import { loginSchemea } from "../schema/loginSchema";
 import { jwtAuthHandler } from "../handlers/jwtAuthHandler";
 import { confidentialDataHandler } from "../handlers/confidentialDataHandler";
 import { logoutHandler } from "../handlers/logoutHandler";
+import { serverHomeHandler } from "../handlers/serverHomeHandler";
 
 
 
@@ -33,6 +34,11 @@ export const authRoutes = async (server: FastifyInstance) => {
         handler: logoutHandler
     }
 
+    const server_home = {
+        handler: serverHomeHandler
+    }
+
+
     // Route initialize
     server.post('/login', loginRoute);
 
@@ -43,6 +49,8 @@ export const authRoutes = async (server: FastifyInstance) => {
     server.post('/confi', confidential);
 
     server.post('/logout', logout);
+
+    server.get('/', server_home);
 
 
 
