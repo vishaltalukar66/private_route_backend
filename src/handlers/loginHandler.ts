@@ -17,7 +17,7 @@ export const loginHandler = async (request: FastifyRequest, reply: FastifyReply)
             reply.setCookie('private', jwt, {
                 httpOnly: true,
                 maxAge: 60 * 60 * 24,
-
+                sameSite: "none",
             }).send(response);
 
         }
