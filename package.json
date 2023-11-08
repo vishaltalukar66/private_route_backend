@@ -20,7 +20,8 @@
     "fastify": "^4.24.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "rimraf": "^5.0.5"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.1",
