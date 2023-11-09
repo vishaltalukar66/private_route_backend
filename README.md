@@ -60,6 +60,6 @@ Start the server
 ## 💻 Technologies Used
 - **Fastify:** A fast and low overhead web framework for Node.js.
 - **Node.js:** A runtime for executing JavaScript on the server.
-- **TypeScript:** A statically typed superset of JavaScript that - **improves code quality.
+- **TypeScript:** A statically typed superset of JavaScript that - **improves code quality.**
 - **MongoDB:** A NoSQL database for data storage.
 
