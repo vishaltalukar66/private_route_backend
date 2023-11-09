@@ -49,7 +49,7 @@ Start the server
 
 **User 2**
 - Email : test@test.com 
-- Password : test1
+- Password : test@1
 
 **Link** back-end : https://private-route-backend.vercel.app/
 
