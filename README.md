@@ -1,28 +1,32 @@
-# Authentication Backend with Fastify, Node.js, TypeScript, and MongoDB
+# User Authentication
 
-This project is a backend application built with Fastify, Node.js, TypeScript, and MongoDB.
+A robust User Authentication Portal crafted with the power of Fastify, Node.js, MongoDB, and TypeScript. 🌐✨
 
-## Features
+## 🛠️ Key Features
 
-- **Fastify**: A fast and low overhead web framework for Node.js.
-- **Node.js**: A runtime for executing JavaScript on the server.
-- **TypeScript**: A statically typed superset of JavaScript that improves code quality.
-- **MongoDB**: A NoSQL database for data storage.
+- **Fastify & TypeScript Combo:** Leveraging the speed of Fastify and the robustness of TypeScript for efficient and type-safe development.
+
+- **Swagger UI Integration:** 🌐✨ Witness the magic of Swagger UI, understanding and testing API endpoints is an interactive and seamless experience.
+
+- **Clear API Documentation:** Thanks to Swagger UI, every API endpoint is well documented. Developers can effortlessly understand and interact with the authentication API.
+
+## Demo
+
+**Link** : https://user-authentication-pied.vercel.app/
+
+⚠ Some feature might work on the browser, please hit the url using Postman.
 
 ## 📋 Usage
 
+*Clone the repository*
 
-*Clone the project*
-
-```bash
-  git clone https://github.com/vishaltalukar66/private_route_backend
-```
-
+   ```bash
+   git clone https://github.com/vishaltalukar66/user_authentication
+   ```
 *Go to the project directory*
 
-
 ```bash
-  cd private_route_backend
+  cd user_authentication
 ```
 
 *Install dependencies*
@@ -30,36 +34,9 @@ This project is a backend application built with Fastify, Node.js, TypeScript, a
 ```bash
   npm install
 ```
-*Start the server*
-Start the server
+
+*Start the App*
 
 ```bash
   npm run dev
-  ```
-  ##
-**⚠ Make sure to create .ENV file with all the Credentials** 
-##
-
-**Link** front-end : https://private-route-navy.vercel.app/
-
-## Credentials
-**User 1**
-- Email : user1@test.com 
-- Password : user1
-
-**User 2**
-- Email : test@test.com 
-- Password : test@1
-
-**Link** back-end : https://private-route-backend.vercel.app/
-
-
-
-
-
-## 💻 Technologies Used
-- **Fastify:** A fast and low overhead web framework for Node.js.
-- **Node.js:** A runtime for executing JavaScript on the server.
-- **TypeScript:** A statically typed superset of JavaScript that - **improves code quality.**
-- **MongoDB:** A NoSQL database for data storage.
-
+```
